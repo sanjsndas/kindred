@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms · Kindred Butter Grove</title>
+  <!-- Fonts: premium serif + sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #faf7f0;
+      color: #1e1b18;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    /* typography */
+    h1, h2, h3, h4, .logo, .nav-link, .footer-title {
+      font-family: 'Sorts Mill Goudy', serif;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .serif-italic {
+      font-family: 'Sorts Mill Goudy', serif;
+      font-style: italic;
+    }
+    /* colour palette */
+    :root {
+      --butter: #f3e8d3;
+      --grove: #3f4a3c;
+      --honey: #d9b382;
+      --cream: #fcf8f0;
+      --charcoal: #1e1b18;
+      --stone: #6f6a63;
+      --sage: #b6c4b0;
+      --border-light: #e3d9cc;
+    }
+    a { color: var(--grove); text-decoration: none; }
+    a:hover { color: var(--honey); }
+
+    /* navigation – unique floating bar */
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0.5rem 0.8rem 0.5rem;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      background: rgba(252, 248, 240, 0.7);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .logo {
+      font-size: 1.9rem;
+      letter-spacing: 0.02em;
+      background: var(--grove);
+      color: var(--cream);
+      padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+      border-radius: 40px 8px 40px 8px;
+      transform: rotate(-0.5deg);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.02);
+    }
+    .logo span {
+      font-style: italic;
+      color: var(--honey);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .nav-links a {
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--honey);
+      color: var(--charcoal);
+    }
+    .hamburger { display: none; }
+
+    /* Terms page specific */
+    .terms-hero {
+      background: var(--butter);
+      padding: 2.8rem 2.5rem;
+      border-radius: 60px 20px 60px 20px;
+      margin-bottom: 3rem;
+    }
+    .terms-hero h1 {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    .terms-hero h1 em {
+      font-style: italic;
+      color: var(--honey);
+    }
+    .terms-hero p {
+      font-size: 1.1rem;
+      color: var(--stone);
+      max-width: 40rem;
+      margin-top: 0.8rem;
+    }
+    .terms-card {
+      background: white;
+      padding: 2.5rem 2.8rem;
+      border-radius: 40px 8px 40px 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+      border: 1px solid var(--border-light);
+      margin-bottom: 2.5rem;
+    }
+    .terms-card h2 {
+      font-size: 1.8rem;
+      margin: 1.8rem 0 0.8rem;
+      border-left: 6px solid var(--honey);
+      padding-left: 1.2rem;
+    }
+    .terms-card h2:first-of-type {
+      margin-top: 0;
+    }
+    .terms-card p {
+      margin-bottom: 1.2rem;
+      color: #2b2724;
+    }
+    .terms-card ul {
+      margin: 0.8rem 0 1.5rem 1.8rem;
+      list-style: square;
+      color: var(--stone);
+    }
+    .terms-card li {
+      margin-bottom: 0.4rem;
+    }
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 3rem 0;
+      justify-content: center;
+    }
+    .badge {
+      background: var(--honey);
+      color: #1e1b18;
+      padding: 0.2rem 1rem;
+      border-radius: 30px 6px 30px 6px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      display: inline-block;
+    }
+    .badge-grove {
+      background: var(--grove);
+      color: white;
+    }
+
+    /* footer */
+    .footer-organic {
+      background: var(--charcoal);
+      color: #ccc;
+      padding: 3.5rem 2.8rem 2.2rem;
+      border-radius: 80px 12px 80px 12px;
+      margin-top: 5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .footer-organic a {
+      color: #b6b0a8;
+      border-bottom: 1px dotted transparent;
+    }
+    .footer-organic a:hover { color: var(--honey); border-bottom-color: var(--honey); }
+    .footer-title {
+      font-size: 1.2rem;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.02em;
+    }
+    .footer-organic ul {
+      list-style: none;
+    }
+    .footer-organic li {
+      margin-bottom: 0.45rem;
+    }
+    .footer-copy {
+      grid-column: 1 / -1;
+      border-top: 1px solid #3f3a35;
+      padding-top: 2rem;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 820px) {
+      .footer-organic { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .hamburger { display: block; font-size: 1.8rem; }
+      .terms-hero h1 { font-size: 2.6rem; }
+    }
+    @media (max-width: 520px) {
+      .footer-organic { grid-template-columns: 1fr; }
+      .terms-hero h1 { font-size: 2.2rem; }
+      .terms-card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- nav -->
+  <nav class="nav-bar">
+    <div class="logo">Kindred<span>Butter</span>Grove</div>
+    <div class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+      <li><a href="categories.html">CATEGORIES</a></li>
+      <li><a href="disclamier.html">DISCLAMIER</a></li>
+    </div>
+    <div class="hamburger">⋮</div>
+  </nav>
+
+  <!-- terms hero -->
+  <div class="terms-hero">
+    <span class="badge">✦ terms & conditions</span>
+    <h1>Terms of <em>service</em></h1>
+    <p>Last updated: 13 July 2026 &nbsp;·&nbsp; Kindred Butter Grove operates with clarity, fairness, and respect for our community. Please read these terms carefully.</p>
+  </div>
+
+  <!-- terms content -->
+  <div class="terms-card">
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing and using the Kindred Butter Grove website (the “Site”), you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please refrain from using the Site.</p>
+
+    <h2>2. Content &amp; Intellectual Property</h2>
+    <p>All content published on this Site — including articles, illustrations, design elements, and graphics — is the property of Kindred Butter Grove unless otherwise noted. You may not reproduce, distribute, or exploit any content without prior written permission.</p>
+    <ul>
+      <li>Brief quotations or citations are permitted with proper attribution.</li>
+      <li>Commercial use of our content is strictly prohibited without a license.</li>
+    </ul>
+
+    <h2>3. User Conduct</h2>
+    <p>We welcome thoughtful engagement. When interacting with the Site (e.g., comments, newsletters), you agree not to:</p>
+    <ul>
+      <li>Post unlawful, defamatory, or abusive material.</li>
+      <li>Impersonate any person or entity.</li>
+      <li>Attempt to gain unauthorised access to our systems.</li>
+    </ul>
+    <p>We reserve the right to moderate or remove any user contribution that violates these standards.</p>
+
+    <h2>4. Privacy &amp; Data</h2>
+    <p>Your privacy matters to us. Our use of personal data is governed by our <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookies Policy</a>. By using the Site, you consent to the collection and use of information as described therein.</p>
+
+    <h2>5. Third-Party Links</h2>
+    <p>Our Site may contain links to external websites. We are not responsible for the content, accuracy, or practices of third-party sites. Inclusion of any link does not imply endorsement.</p>
+
+    <h2>6. Disclaimers &amp; Limitation of Liability</h2>
+    <p>The content on Kindred Butter Grove is provided for informational and educational purposes only. While we strive for accuracy, we make no warranties regarding the completeness or reliability of any content.</p>
+    <ul>
+      <li>Use of the Site is at your own risk.</li>
+      <li>To the fullest extent permitted by law, Kindred Butter Grove shall not be liable for any indirect, incidental, or consequential damages.</li>
+    </ul>
+
+    <h2>7. Changes to Terms</h2>
+    <p>We may revise these Terms of Service from time to time. The most current version will always be posted on this page. Continued use of the Site after changes constitutes acceptance of the updated terms.</p>
+
+    <h2>8. Governing Law</h2>
+    <p>These terms are governed by the laws of the United Kingdom, without regard to conflict of law principles.</p>
+
+    <h2>9. Contact Us</h2>
+    <p>If you have any questions about these Terms, please <a href="contact.html">reach out to us</a> — we’re happy to clarify.</p>
+    <p style="margin-top: 1.2rem; font-size: 0.9rem; color: var(--stone);">✧  Effective date: 13 July 2026  ✧</p>
+  </div>
+
+  <!-- badge group (consistent) -->
+  <div class="badge-group">
+    <span class="badge" style="background: var(--grove); color: white;">Blog</span>
+    <span class="badge" style="background: var(--sage);">Categories</span>
+    <span class="badge" style="background: var(--honey);">About</span>
+    <span class="badge">Contact</span>
+    <span class="badge">Privacy</span>
+    <span class="badge">Terms</span>
+    <span class="badge">Cookie policy</span>
+    <span class="badge">Disclaimer</span>
+    <span class="badge">Editorial</span>
+    <span class="badge">Authors</span>
+    <span class="badge">Archive</span>
+    <span class="badge">Resources</span>
+    <span class="badge">FAQ</span>
+    <span class="badge">Sitemap</span>
+  </div>
+
+  <!-- footer -->
+  <footer class="footer-organic">
+    <div>
+      <div class="footer-title">Kindred Butter Grove</div>
+      <p style="font-size: 0.9rem; max-width: 14rem;">Authority journal · since 2026 · handcrafted with warmth.</p>
+    </div>
+    <div>
+      <div class="footer-title">Explore</div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Archive</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Information</div>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Resources</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Legal</div>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">Disclaimer</a></li>
+        <li><a href="#">Editorial Policy</a></li>
+        <li><a href="#">Authors</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy">
+      <span>© 2026 Kindred Butter Grove — all rights reserved.</span>
+      <span>✧  Sitemap  ✧  built with intention</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
